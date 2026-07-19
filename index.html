@@ -1,0 +1,956 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jornada 7D | Reprogramação para Manifestar</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600&display=swap');
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg:       #0E0505;
+    --bg2:      #150808;
+    --bg3:      #1A0A0A;
+    --crimson:  #5C0A0A;
+    --crimson2: #7A0E0E;
+    --gold:     #C9922A;
+    --gold-lt:  #E8BF6A;
+    --gold-dim: #6B4A12;
+    --white:    #F5F0E8;
+    --gray:     #8A7A6A;
+    --gray-lt:  #BFB09A;
+  }
+
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--bg);
+    color: var(--white);
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── TOP BAR ── */
+  .top-bar {
+    height: 4px;
+    background: linear-gradient(to right, var(--crimson), var(--gold), var(--crimson));
+  }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 80px 24px 60px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 80% 60% at 50% 30%, rgba(92,10,10,0.55) 0%, transparent 70%),
+      radial-gradient(ellipse 40% 30% at 50% 45%, rgba(201,146,42,0.12) 0%, transparent 60%);
+    pointer-events: none;
+  }
+
+  /* Star ornament */
+  .star-top {
+    width: 32px;
+    height: 32px;
+    margin-bottom: 32px;
+    opacity: 0.85;
+  }
+
+  .hero-eyebrow {
+    font-family: 'Inter', sans-serif;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.35em;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 24px;
+  }
+
+  .hero h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(64px, 12vw, 120px);
+    font-weight: 700;
+    line-height: 0.9;
+    color: var(--white);
+    margin-bottom: 0;
+    letter-spacing: 0.05em;
+  }
+  .hero h1 .seven {
+    font-size: clamp(90px, 16vw, 160px);
+    color: var(--gold);
+    line-height: 0.85;
+    display: block;
+    text-shadow: 0 0 80px rgba(201,146,42,0.3);
+  }
+
+  .hero-sub {
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.3em;
+    color: var(--gold-lt);
+    text-transform: uppercase;
+    margin: 20px 0 40px;
+  }
+
+  .gold-rule {
+    width: 1px;
+    height: 50px;
+    background: linear-gradient(to bottom, transparent, var(--gold), transparent);
+    margin: 0 auto 40px;
+  }
+
+  .hero-headline {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(20px, 3.5vw, 30px);
+    font-style: italic;
+    font-weight: 400;
+    color: var(--white);
+    max-width: 620px;
+    line-height: 1.45;
+    margin-bottom: 16px;
+  }
+  .hero-headline strong {
+    font-style: normal;
+    font-weight: 600;
+    color: var(--gold-lt);
+  }
+
+  .hero-desc {
+    font-size: 15px;
+    color: var(--gray-lt);
+    max-width: 500px;
+    margin: 0 auto 48px;
+    font-weight: 300;
+    line-height: 1.8;
+  }
+
+  /* ── BUTTONS ── */
+  .btn-cta {
+    display: inline-block;
+    background: linear-gradient(135deg, #C9922A, #E8BF6A, #C9922A);
+    background-size: 200% 100%;
+    color: #0E0505;
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 18px 56px;
+    transition: background-position 0.4s, transform 0.15s;
+  }
+  .btn-cta:hover {
+    background-position: 100% 0;
+    transform: translateY(-1px);
+  }
+  .btn-price {
+    display: block;
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 0.06em;
+    color: rgba(14,5,5,0.55);
+    margin-top: 4px;
+    text-transform: uppercase;
+  }
+  .guarantee-note {
+    margin-top: 14px;
+    font-size: 11px;
+    color: var(--gray);
+    letter-spacing: 0.08em;
+  }
+
+  /* ── DIVIDER ── */
+  .divider {
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--gold-dim), transparent);
+  }
+  .ornament {
+    text-align: center;
+    padding: 20px 0;
+    color: var(--gold-dim);
+    font-size: 18px;
+    letter-spacing: 0.3em;
+  }
+
+  /* ── LAYOUT ── */
+  .section { max-width: 820px; margin: 0 auto; padding: 80px 24px; }
+  .section-label {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.35em;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .section-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(to right, var(--gold-dim), transparent);
+  }
+
+  h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(30px, 5vw, 46px);
+    font-weight: 700;
+    line-height: 1.15;
+    margin-bottom: 24px;
+    color: var(--white);
+  }
+  h2 em { color: var(--gold-lt); font-style: italic; }
+  p.lead {
+    font-size: 16px;
+    color: var(--gray-lt);
+    line-height: 1.85;
+    margin-bottom: 16px;
+    font-weight: 300;
+  }
+
+  /* ── PAIN ── */
+  .pain-list {
+    list-style: none;
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    border: 1px solid var(--gold-dim);
+  }
+  .pain-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 18px;
+    padding: 22px 24px;
+    border-bottom: 1px solid rgba(107,74,18,0.3);
+    background: var(--bg2);
+    transition: background 0.2s;
+  }
+  .pain-item:last-child { border-bottom: none; }
+  .pain-item:hover { background: var(--bg3); }
+  .pain-dot {
+    width: 6px;
+    height: 6px;
+    background: var(--gold);
+    border-radius: 50%;
+    flex-shrink: 0;
+    margin-top: 8px;
+  }
+  .pain-item p { font-size: 15px; color: var(--gray-lt); line-height: 1.6; }
+
+  /* ── QUOTE ── */
+  .quote-block {
+    border-top: 1px solid var(--gold-dim);
+    border-bottom: 1px solid var(--gold-dim);
+    padding: 48px 24px;
+    margin: 60px 0;
+    text-align: center;
+  }
+  .quote-block blockquote {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: clamp(20px, 3vw, 28px);
+    color: var(--gold-lt);
+    line-height: 1.5;
+    max-width: 600px;
+    margin: 0 auto 12px;
+  }
+  .quote-block cite {
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    color: var(--gray);
+    text-transform: uppercase;
+    font-style: normal;
+  }
+
+  /* ── DAYS ── */
+  .days { display: flex; flex-direction: column; gap: 2px; margin-top: 40px; }
+  .day-row {
+    display: grid;
+    grid-template-columns: 72px 1fr;
+    background: var(--bg2);
+    border: 1px solid rgba(107,74,18,0.4);
+    transition: border-color 0.2s;
+  }
+  .day-row:hover { border-color: var(--gold-dim); }
+  .day-num {
+    background: linear-gradient(180deg, var(--crimson), var(--crimson2));
+    border-right: 1px solid var(--gold-dim);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px 8px;
+    gap: 4px;
+  }
+  .day-label {
+    font-size: 8px;
+    letter-spacing: 0.2em;
+    color: var(--gold);
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+  .day-number {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--gold-lt);
+    line-height: 1;
+  }
+  .day-body { padding: 22px 26px; }
+  .day-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 6px;
+  }
+  .day-tag {
+    display: inline-block;
+    font-size: 9px;
+    letter-spacing: 0.15em;
+    color: var(--gold);
+    text-transform: uppercase;
+    border: 1px solid var(--gold-dim);
+    padding: 2px 8px;
+    margin-bottom: 8px;
+  }
+  .day-desc { font-size: 13px; color: var(--gray); line-height: 1.6; }
+
+  /* ── INCLUDES ── */
+  .includes-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px;
+    margin-top: 40px;
+  }
+  .include-card {
+    background: var(--bg2);
+    border: 1px solid rgba(107,74,18,0.4);
+    padding: 28px 24px;
+    border-top: 2px solid var(--gold-dim);
+  }
+  .include-icon { font-size: 22px; margin-bottom: 12px; display: block; }
+  .include-card h4 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px;
+    color: var(--gold-lt);
+    margin-bottom: 8px;
+  }
+  .include-card p { font-size: 13px; color: var(--gray); line-height: 1.6; }
+
+  /* ── FOR YOU ── */
+  .for-you-list {
+    list-style: none;
+    margin-top: 36px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .for-you-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    font-size: 15px;
+    color: var(--gray-lt);
+    line-height: 1.6;
+    padding-bottom: 16px;
+    border-bottom: 1px solid rgba(107,74,18,0.2);
+  }
+  .for-you-list li:last-child { border-bottom: none; }
+  .for-you-list li .arrow { color: var(--gold); flex-shrink: 0; margin-top: 2px; }
+
+  /* ── PRICE ── */
+  .price-section {
+    background: var(--bg2);
+    border-top: 1px solid var(--gold-dim);
+    border-bottom: 1px solid var(--gold-dim);
+    padding: 80px 24px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .price-section::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 60% 50% at 50% 50%, rgba(92,10,10,0.3) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .price-was { font-size: 14px; color: var(--gray); text-decoration: line-through; margin-bottom: 8px; letter-spacing: 0.05em; }
+  .price-now {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 80px;
+    font-weight: 700;
+    color: var(--gold);
+    line-height: 1;
+    margin-bottom: 6px;
+    text-shadow: 0 0 60px rgba(201,146,42,0.2);
+  }
+  .price-now sup { font-size: 30px; vertical-align: super; }
+  .price-desc { font-size: 12px; color: var(--gray); margin-bottom: 40px; letter-spacing: 0.08em; }
+  .guarantee {
+    margin-top: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    font-size: 12px;
+    color: var(--gray);
+    letter-spacing: 0.05em;
+  }
+
+  /* ── FOOTER ── */
+  .footer {
+    background: #080202;
+    padding: 32px 24px;
+    text-align: center;
+    border-top: 1px solid rgba(107,74,18,0.3);
+  }
+  .footer p { font-size: 12px; color: var(--gray); line-height: 1.8; }
+  .footer .gold-text { color: var(--gold); }
+
+  /* ── STICKY ── */
+  .sticky-cta {
+    position: fixed;
+    bottom: 0; left: 0; right: 0;
+    background: rgba(14,5,5,0.97);
+    border-top: 1px solid var(--gold-dim);
+    padding: 14px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    z-index: 100;
+    backdrop-filter: blur(8px);
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
+  }
+  .sticky-cta.visible { transform: translateY(0); }
+  .sticky-text { font-size: 13px; color: var(--gray-lt); }
+  .sticky-text strong { color: var(--white); }
+  .btn-sticky {
+    background: linear-gradient(135deg, #C9922A, #E8BF6A);
+    color: #0E0505;
+    font-weight: 700;
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 12px 28px;
+    white-space: nowrap;
+    transition: opacity 0.2s;
+    flex-shrink: 0;
+  }
+  .btn-sticky:hover { opacity: 0.9; }
+
+  /* SVG star */
+  .star-svg { display: inline-block; }
+
+
+  /* ── SOCIAL PROOF ── */
+  .proof-bar {
+    background: var(--bg2);
+    border-bottom: 1px solid rgba(107,74,18,0.3);
+    padding: 14px 24px;
+    text-align: center;
+    font-size: 12px;
+    color: var(--gray);
+    letter-spacing: 0.05em;
+  }
+  .proof-bar strong { color: var(--gold-lt); }
+
+  /* ── PRICE INSTALLMENT ── */
+  .price-or {
+    font-size: 11px;
+    color: var(--gray);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin: 8px 0;
+  }
+  .price-install {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    color: var(--gray-lt);
+    margin-bottom: 6px;
+  }
+  .price-install strong { color: var(--gold-lt); font-size: 28px; }
+  .price-highlight {
+    display: inline-block;
+    background: var(--gold-dim);
+    color: var(--gold-lt);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 4px 14px;
+    margin-bottom: 28px;
+  }
+
+  /* ── TESTIMONIALS ── */
+  .testimonials { display: flex; flex-direction: column; gap: 2px; margin-top: 40px; }
+  .testimonial {
+    background: var(--bg2);
+    border: 1px solid rgba(107,74,18,0.35);
+    border-left: 3px solid var(--gold-dim);
+    padding: 24px 26px;
+  }
+  .testimonial-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 17px;
+    color: var(--white);
+    line-height: 1.5;
+    margin-bottom: 12px;
+  }
+  .testimonial-name { font-size: 11px; color: var(--gold); letter-spacing: 0.15em; text-transform: uppercase; }
+  .stars { color: var(--gold); font-size: 13px; margin-bottom: 8px; letter-spacing: 3px; }
+
+  /* ── FAQ ── */
+  .faq { display: flex; flex-direction: column; gap: 2px; margin-top: 36px; }
+  .faq-item {
+    background: var(--bg2);
+    border: 1px solid rgba(107,74,18,0.35);
+    overflow: hidden;
+  }
+  .faq-q {
+    padding: 18px 24px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--white);
+    user-select: none;
+  }
+  .faq-q:hover { color: var(--gold-lt); }
+  .faq-icon { color: var(--gold); font-size: 18px; flex-shrink: 0; transition: transform 0.25s; }
+  .faq-a {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+    font-size: 14px;
+    color: var(--gray-lt);
+    line-height: 1.7;
+  }
+  .faq-a-inner { padding: 0 24px 20px; }
+  .faq-item.open .faq-a { max-height: 200px; }
+  .faq-item.open .faq-icon { transform: rotate(45deg); }
+
+  /* ── RISK REVERSAL ── */
+  .risk-box {
+    background: var(--bg2);
+    border: 1px solid var(--gold-dim);
+    border-top: 3px solid var(--gold);
+    padding: 36px 32px;
+    text-align: center;
+    margin-top: 40px;
+  }
+  .risk-box .shield { font-size: 40px; margin-bottom: 16px; display: block; }
+  .risk-box h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 24px;
+    color: var(--gold-lt);
+    margin-bottom: 12px;
+  }
+  .risk-box p { font-size: 14px; color: var(--gray-lt); line-height: 1.7; max-width: 480px; margin: 0 auto; }
+
+  @media (max-width: 640px) {
+    .includes-grid { grid-template-columns: 1fr; }
+    .day-row { grid-template-columns: 56px 1fr; }
+    .sticky-cta { flex-direction: column; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<div class="top-bar"></div>
+
+<div class="proof-bar">
+  <strong>+1.200 pessoas</strong> já atravessaram esta jornada e transformaram sua realidade
+</div>
+
+<!-- ══ HERO ══ -->
+<section class="hero">
+  <!-- Star ornament -->
+  <svg class="star-top" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+    <path d="M16 0 L17.2 14.8 L32 16 L17.2 17.2 L16 32 L14.8 17.2 L0 16 L14.8 14.8 Z" fill="#C9922A" opacity="0.85"/>
+  </svg>
+
+  <p class="hero-eyebrow">Um desafio de transformação real</p>
+
+  <h1>
+    JORNADA
+    <span class="seven">7D</span>
+  </h1>
+  <p class="hero-sub">Sete dias de reprogramação profunda</p>
+
+  <div class="gold-rule"></div>
+
+  <p class="hero-headline">
+    Em 7 dias, você vai <strong>desmontar quem você era</strong><br>
+    e construir a identidade de quem <strong>já manifesta.</strong>
+  </p>
+
+  <p class="hero-desc">
+    Teoria. Prática. Meditações guiadas. Exercícios de reprogramação.<br>
+    Uma jornada completa para reescrever a sua realidade do zero.
+  </p>
+
+  <a href="https://pay.cakto.com.br/sj72e73_882569" class="btn-cta">
+    Quero entrar na Jornada
+    <span class="btn-price">R$ 87,90 ou 12x de R$ 9,08</span>
+  </a>
+  <p class="guarantee-note">🔒 Compra segura · 7 dias de garantia</p>
+</section>
+
+<div class="divider"></div>
+<div class="ornament">✦ &nbsp; ✦ &nbsp; ✦</div>
+<div class="divider"></div>
+
+<!-- ══ DOR ══ -->
+<div class="section">
+  <p class="section-label">O que te trouxe até aqui</p>
+  <h2>Você sabe que merece mais.<br>Mas algo <em>sempre segura.</em></h2>
+  <p class="lead">Você já leu sobre manifestação. Já tentou afirmações positivas. Já acreditou por um tempo. Mas a realidade não mudou. E depois de um tempo, a dúvida volta.</p>
+  <p class="lead">O problema não é falta de fé. É que a reprogramação nunca foi feita na raiz. As crenças antigas continuam rodando por baixo, sabotando tudo o que você tenta construir na superfície.</p>
+
+  <ul class="pain-list">
+    <li class="pain-item">
+      <span class="pain-dot"></span>
+      <p>Você se vê repetindo os mesmos padrões, mesmo quando sabe conscientemente que quer algo diferente</p>
+    </li>
+    <li class="pain-item">
+      <span class="pain-dot"></span>
+      <p>Você começa a acreditar, tem dias bons, mas qualquer contratempo derruba tudo de volta</p>
+    </li>
+    <li class="pain-item">
+      <span class="pain-dot"></span>
+      <p>Você sente que existe um teto invisível, como se a vida que você quer fosse para outras pessoas</p>
+    </li>
+    <li class="pain-item">
+      <span class="pain-dot"></span>
+      <p>Você não se sente no controle da própria vida, como se as circunstâncias fossem mais fortes do que a sua vontade</p>
+    </li>
+  </ul>
+</div>
+
+<div class="divider"></div>
+
+<!-- ══ QUOTE ══ -->
+<div style="max-width:820px;margin:0 auto;padding:0 24px;">
+  <div class="quote-block">
+    <blockquote>"A realidade exterior é sempre um reflexo do estado interior. Mude o estado. A realidade segue."</blockquote>
+    <cite>— Jornada 7D</cite>
+  </div>
+</div>
+
+<!-- ══ SOLUÇÃO ══ -->
+<div class="section" style="padding-top:40px;">
+  <p class="section-label">A jornada</p>
+  <h2>Sete dias para <em>reescrever</em><br>tudo por dentro.</h2>
+  <p class="lead">A Jornada 7D não é um curso para assistir. É um processo para atravessar. Cada dia tem um propósito específico, uma ordem intencional e ferramentas práticas para que a transformação aconteça de verdade.</p>
+
+  <div class="days">
+
+    <div class="day-row">
+      <div class="day-num">
+        <span class="day-label">Dia</span>
+        <span class="day-number">1</span>
+      </div>
+      <div class="day-body">
+        <span class="day-tag">Fundação</span>
+        <p class="day-title">Matar a Vítima</p>
+        <p class="day-desc">O primeiro passo é o mais radical: identificar e desmontar a identidade vitimista que impede qualquer mudança real. Enquanto você se vê como vítima das circunstâncias, a transformação é impossível. Hoje isso muda.</p>
+      </div>
+    </div>
+
+    <div class="day-row">
+      <div class="day-num">
+        <span class="day-label">Dia</span>
+        <span class="day-number">2</span>
+      </div>
+      <div class="day-body">
+        <span class="day-tag">Consciência</span>
+        <p class="day-title">Pensamento, Sentimento e Realidade</p>
+        <p class="day-desc">Como os seus pensamentos e sentimentos constroem ativamente a sua experiência de vida. Não como metáfora, mas como mecanismo real. Você vai entender o que está criando agora, e como direcionar isso conscientemente.</p>
+      </div>
+    </div>
+
+    <div class="day-row">
+      <div class="day-num">
+        <span class="day-label">Dia</span>
+        <span class="day-number">3</span>
+      </div>
+      <div class="day-body">
+        <span class="day-tag">Campo</span>
+        <p class="day-title">Física Quântica e o Campo da Possibilidade</p>
+        <p class="day-desc">Existe um campo de possibilidades além do que os olhos enxergam. Neste dia você vai entender como funciona esse campo, como acessá-lo e como se conectar com a versão da realidade que você deseja viver, antes que ela apareça no plano físico.</p>
+      </div>
+    </div>
+
+    <div class="day-row">
+      <div class="day-num">
+        <span class="day-label">Dia</span>
+        <span class="day-number">4</span>
+      </div>
+      <div class="day-body">
+        <span class="day-tag">Alquimia</span>
+        <p class="day-title">Transmutação: Transformando Chumbo em Ouro</p>
+        <p class="day-desc">Regulação do sistema nervoso e transmutação emocional. Como transformar emoções densas, medo, ansiedade e raiva em combustível para a criação. O corpo precisa estar alinhado com o que a mente deseja.</p>
+      </div>
+    </div>
+
+    <div class="day-row">
+      <div class="day-num">
+        <span class="day-label">Dia</span>
+        <span class="day-number">5</span>
+      </div>
+      <div class="day-body">
+        <span class="day-tag">Raiz</span>
+        <p class="day-title">A Narrativa Interna: Reprogramando as Crenças</p>
+        <p class="day-desc">As crenças são histórias que você conta sobre o que é possível para você. Neste dia, você vai identificar as narrativas limitantes que rodam por baixo da sua consciência e reescrever cada uma delas.</p>
+      </div>
+    </div>
+
+    <div class="day-row">
+      <div class="day-num">
+        <span class="day-label">Dia</span>
+        <span class="day-number">6</span>
+      </div>
+      <div class="day-body">
+        <span class="day-tag">Identidade</span>
+        <p class="day-title">Alinhamento com a Identidade que Manifesta</p>
+        <p class="day-desc">Você não atrai o que quer. Atrai o que é. Neste dia, você vai construir e se instalar na identidade da versão de você que já vive a realidade que deseja. Um trabalho profundo, prático e irreversível.</p>
+      </div>
+    </div>
+
+    <div class="day-row">
+      <div class="day-num">
+        <span class="day-label">Dia</span>
+        <span class="day-number">7</span>
+      </div>
+      <div class="day-body">
+        <span class="day-tag">Integração</span>
+        <p class="day-title">Enxergar Além e Sustentar a Fé</p>
+        <p class="day-desc">Como continuar acreditando quando a realidade ainda não mostrou sinais. Como integrar tudo o que foi vivido nesses sete dias e criar um sistema sustentável para seguir manifestando depois que a jornada terminar.</p>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="divider"></div>
+<div class="ornament">✦ &nbsp; ✦ &nbsp; ✦</div>
+<div class="divider"></div>
+
+<!-- ══ INCLUI ══ -->
+<div class="section">
+  <p class="section-label">O que você recebe</p>
+  <h2>Uma jornada completa,<br>por <em>R$ 87,90.</em></h2>
+
+  <div class="includes-grid">
+    <div class="include-card">
+      <span class="include-icon">📖</span>
+      <h4>Conteúdo Teórico</h4>
+      <p>O embasamento de cada dia: como a mente funciona, como as emoções moldam a realidade e por que os padrões se repetem. Conteúdo denso, apresentado de forma acessível e direta.</p>
+    </div>
+    <div class="include-card">
+      <span class="include-icon">⚡</span>
+      <h4>Exercícios Práticos</h4>
+      <p>Ao final de cada dia, exercícios específicos para que o conhecimento não fique só na cabeça e se instale no corpo, no sistema nervoso e na identidade.</p>
+    </div>
+    <div class="include-card">
+      <span class="include-icon">🎧</span>
+      <h4>Áudios de Meditação</h4>
+      <p>Meditações guiadas e práticas de autohipnose criadas para cada fase da jornada. Para ouvir no seu tempo, onde estiver.</p>
+    </div>
+    <div class="include-card">
+      <span class="include-icon">🔁</span>
+      <h4>Acesso Vitalício</h4>
+      <p>A jornada pode ser refeita quantas vezes quiser. Sem prazo, sem mensalidade. Cada vez que você atravessa, vai mais fundo.</p>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ══ PARA QUEM ══ -->
+<div class="section" style="padding-top:60px;padding-bottom:60px;">
+  <p class="section-label">Para quem é</p>
+  <h2>Esta jornada é para você<br>se <em>alguma dessas frases ressoa.</em></h2>
+  <ul class="for-you-list">
+    <li><span class="arrow">→</span> <span>Você sente que merece mais, mas não sabe o que está te impedindo de ter</span></li>
+    <li><span class="arrow">→</span> <span>Você já tentou manifestação antes e não funcionou do jeito que esperava</span></li>
+    <li><span class="arrow">→</span> <span>Você quer entender o mecanismo por trás da criação de realidade, não só a teoria positiva</span></li>
+    <li><span class="arrow">→</span> <span>Você está pronto para fazer um trabalho real, que vai além de afirmações e visualizações superficiais</span></li>
+    <li><span class="arrow">→</span> <span>Você quer ferramentas concretas para continuar acreditando quando a realidade ainda não mudou</span></li>
+  </ul>
+</div>
+
+<div class="divider"></div>
+
+<!-- ══ DEPOIMENTOS ══ -->
+<div class="section">
+  <p class="section-label">Quem já fez</p>
+  <h2>Eles decidiram atravessar.<br><em>O que aconteceu depois.</em></h2>
+
+  <div class="testimonials">
+    <div class="testimonial">
+      <p class="stars">★★★★★</p>
+      <p class="testimonial-text">"Eu achei que já conhecia tudo sobre manifestação. O dia 1 me deixou sem chão. Eu nunca tinha percebido o quanto a minha identidade de vítima estava travando tudo. A jornada inteira mudou minha relação com a minha própria vida."</p>
+      <p class="testimonial-name">Ana C. · São Paulo, SP</p>
+    </div>
+    <div class="testimonial">
+      <p class="stars">★★★★★</p>
+      <p class="testimonial-text">"Os áudios de meditação sozinhos já valem o investimento. Faço todo dia ainda, mesmo depois de terminar a jornada. Sinto que finalmente tenho ferramentas reais, não só teoria bonita."</p>
+      <p class="testimonial-name">Rafael M. · Curitiba, PR</p>
+    </div>
+    <div class="testimonial">
+      <p class="stars">★★★★★</p>
+      <p class="testimonial-text">"O dia 6, sobre identidade, foi o mais impactante da minha vida. Eu entendi que eu estava esperando a vida mudar para eu me sentir diferente. A jornada virou isso de cabeça para baixo."</p>
+      <p class="testimonial-name">Camila R. · Belo Horizonte, MG</p>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ══ FAQ ══ -->
+<div class="section" style="padding-top:60px;padding-bottom:60px;">
+  <p class="section-label">Perguntas frequentes</p>
+  <h2>Antes de decidir,<br><em>tire suas dúvidas.</em></h2>
+
+  <div class="faq">
+    <div class="faq-item">
+      <div class="faq-q">
+        Preciso ter experiência com meditação ou desenvolvimento pessoal?
+        <span class="faq-icon">+</span>
+      </div>
+      <div class="faq-a"><div class="faq-a-inner">Não. A jornada foi construída para funcionar mesmo para quem está começando do zero. Cada conceito é apresentado de forma acessível, e os exercícios práticos guiam você passo a passo. Se você já tem experiência, vai aprofundar muito o que sabe.</div></div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">
+        Preciso fazer tudo em 7 dias seguidos?
+        <span class="faq-icon">+</span>
+      </div>
+      <div class="faq-a"><div class="faq-a-inner">O ideal é que sim, porque a jornada tem uma sequência intencional e cada dia prepara o terreno para o próximo. Mas o acesso é vitalício. Você pode adaptar ao seu ritmo e refazer quantas vezes quiser.</div></div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">
+        Quanto tempo por dia preciso dedicar?
+        <span class="faq-icon">+</span>
+      </div>
+      <div class="faq-a"><div class="faq-a-inner">Em torno de 30 a 60 minutos por dia, incluindo o conteúdo, os exercícios e os áudios. Você escolhe o horário que funciona melhor para você.</div></div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">
+        E se eu não gostar ou sentir que não é para mim?
+        <span class="faq-icon">+</span>
+      </div>
+      <div class="faq-a"><div class="faq-a-inner">Você tem 7 dias de garantia total. Se por qualquer motivo sentir que não foi o que esperava, é só pedir o reembolso e devolvemos tudo. Sem burocracia, sem perguntas.</div></div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">
+        Isso funciona mesmo, ou é só mais um conteúdo motivacional?
+        <span class="faq-icon">+</span>
+      </div>
+      <div class="faq-a"><div class="faq-a-inner">A Jornada 7D não trabalha com motivação de superfície. O processo vai até a raiz: identidade, crenças, sistema nervoso, padrões inconscientes. A transformação que acontece aqui é estrutural, não pontual.</div></div>
+    </div>
+  </div>
+
+  <!-- Guarantee box -->
+  <div class="risk-box">
+    <span class="shield">🛡️</span>
+    <h3>Garantia total de 7 dias</h3>
+    <p>Você entra sem risco. Se em 7 dias você sentir que a jornada não foi o que esperava, devolvemos 100% do seu investimento. Sem perguntas, sem burocracia. A única coisa que pode acontecer é você transformar a sua vida.</p>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ══ PREÇO ══ -->
+<section class="price-section" id="comprar">
+  <p class="section-label" style="justify-content:center;max-width:200px;margin:0 auto 24px;">
+    Garanta sua vaga
+  </p>
+
+  <svg width="24" height="24" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" style="margin-bottom:20px;opacity:0.7;">
+    <path d="M16 0 L17.2 14.8 L32 16 L17.2 17.2 L16 32 L14.8 17.2 L0 16 L14.8 14.8 Z" fill="#C9922A"/>
+  </svg>
+
+  <p class="price-was">De R$ 197,00</p>
+  <p class="price-now"><sup>R$</sup>87<sup style="font-size:36px;">,90</sup></p>
+  <p class="price-or">ou</p>
+  <p class="price-install">12x de <strong>R$ 9,08</strong></p>
+  <span class="price-highlight">✦ &nbsp; Menos que um café por dia &nbsp; ✦</span>
+
+  <br>
+
+  <a href="https://pay.cakto.com.br/sj72e73_882569" class="btn-cta" style="margin-top:8px;">
+    Quero entrar na Jornada 7D
+    <span class="btn-price">R$ 87,90 ou 12x de R$ 9,08</span>
+  </a>
+
+  <p style="font-size:12px;color:var(--gray);margin-top:16px;letter-spacing:0.05em;">
+    Pix · Cartão de crédito · Boleto
+  </p>
+
+  <div class="guarantee" style="margin-top:20px;">
+    <span>🛡️</span>
+    <span>7 dias de garantia incondicional. Não gostou, devolvemos tudo. Sem perguntas.</span>
+  </div>
+</section>
+
+<!-- ══ FOOTER ══ -->
+<footer class="footer">
+  <p><span class="gold-text">Jornada 7D</span> · Reprogramação para Manifestar</p>
+  <p style="margin-top:6px;">Este conteúdo tem finalidade educacional e de desenvolvimento pessoal.</p>
+  <p style="margin-top:6px;">© 2025 · Todos os direitos reservados</p>
+</footer>
+
+<!-- ══ STICKY BAR ══ -->
+<div class="sticky-cta" id="stickyCta">
+  <p class="sticky-text"><strong>Jornada 7D</strong> · 7 dias de reprogramação profunda</p>
+  <a href="https://pay.cakto.com.br/sj72e73_882569" class="btn-sticky">R$ 87,90 ou 12x de R$ 9,08</a>
+</div>
+
+<script>
+  const sticky = document.getElementById('stickyCta');
+  const hero   = document.querySelector('.hero');
+  const obs = new IntersectionObserver(([e]) => {
+    sticky.classList.toggle('visible', !e.isIntersecting);
+  }, { threshold: 0.1 });
+  obs.observe(hero);
+</script>
+
+<script>
+  // FAQ accordion
+  document.querySelectorAll('.faq-q').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const item = btn.parentElement;
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+      if (!isOpen) item.classList.add('open');
+    });
+  });
+</script>
+
+</body>
+</html>
